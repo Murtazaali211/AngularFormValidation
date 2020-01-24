@@ -1,0 +1,42 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-md-4 loginbox">
+        <div >
+          <h3>Sign Up</h3>
+        </div>
+        <div class="form-group" [class.has-error]="userName.invalid && userName.touched">
+          <label for="userName" class="control-label">User Name</label>
+          <input type="text" class="form-control" name="userName" id="userName" placeholder="Enter user name" [(ngModel)]="user.userName" #userName="ngModel" required>
+          <span class="help-block text-danger" *ngIf="userName.invalid && (userName.dirty || userName.touched)">User name is required</span>
+        </div>
+
+        <div ngModelGroup="passwordGroup" appConfirmEqualValidator #passwordGroup="ngModelGroup"
+             [class.has-error]="passwordGroup.errors?.required && confirmpassword.errors?.required">
+          <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
+            <label for="Password" class="control-label">Password</label>
+            <input type="text" class="form-control" name="Password" id="Password" placeholder="Enter password" [(ngModel)]="user.Password"
+                   #Password="ngModel" required> <!--(input)="confirmpassword.control.updateValueAndValidity()"-->
+            <span class="help-block text-danger" *ngIf="Password.invalid && (Password.dirty || Password.touched)">Password is required</span>
+          </div>
+          <div class="form-group" [class.has-error]="confirmpassword.invalid && confirmpassword.touched">
+            <label for="confirmpassword" class="control-label">Confirm password</label>
+            <input type="text" class="form-control"  name="confirmpassword" id="confirmpassword" placeholder="Enter confirm password" [(ngModel)]="user.confirmpassword" #confirmpassword="ngModel" required>
+            <span class="help-block text-danger" *ngIf="confirmpassword.touched && confirmpassword.errors?.required">confirm password is required</span>
+            <span class="help-block text-danger" *ngIf="confirmpassword.touched && passwordGroup.errors?.notEqual && !confirmpassword.errors?.required">Password and confirm password does not match</span>
+          </div>
+        </div>
+        <div class="form-group text-right">
+          <button class="btn  btn-primary" (click)="login()">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+<!--<a href="" class="btn  btn-primary" routerLink="/home">Login</a>-->
