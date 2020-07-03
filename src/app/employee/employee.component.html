@@ -1,1 +1,42 @@
-<p>employee works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-3">
+
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li>
+            <a routerLink="/employee">List</a>
+          </li>
+          <li>
+            <a routerLink="/createEmployee">Create</a>
+          </li>
+          <li>
+            <a [routerLink]="['/employees', 1]">Get Employee</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <hr />
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search By Name"
+     style="width: 300px;" [(ngModel)]="searchText" />
+  </div>
+  <div class="form-group">
+    <button (click)="changeEmployeeName()" class="btn btn-primary">Change Employee Name</button>
+  </div>
+  <!-- <h1 *ngIf="dataFromChild">{{dataFromChild?.name + ' ' + dataFromChild?.gender}}</h1> -->
+  <!-- <h1 #h1Variable></h1> -->
+  <!-- <div class="panel panel-primary" *ngFor="let employee of employees | employeeFilter: searchText" (mousemove)="onMouseMove()"> -->
+    <div class="panel panel-primary" *ngFor="let employee of filteredEmployees" (mousemove)="onMouseMove()">
+  <!-- <div (click)="h1Variable.innerHTML = childComponent.getEmployeeNameAndGender()">--> <!--childComponent.employee.name + ' ' + childComponent.employee.gender"> -->
+    <div (click)="onClick(employee.id)" class="pointerCursor">
+      <app-display-employees [employee]="employee" ></app-display-employees> <!--#childComponent-->
+    </div>
+      <!--(notify)="handleNotify($event)" -->
+    <!-- </div> -->
+  </div>
+  <!-- <button (click)="nextEmployee()" class="btn btn-primary">View Next Employee</button>
+  <br/><br/>
+  <app-display-employees [employee]="employeeToDisplay" [employeeId]="employeeToDisplay.id"></app-display-employees> -->
+</div>

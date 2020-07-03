@@ -1,5 +1,24 @@
 <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li>                
+                <a routerLink="/employee">Employees</a>
+            </li>
+            <li>
+                <a routerLink="/createEmployee">Create</a>
+            </li>
+            <li>
+                <a href="https://www.google.com">Google</a>
+            </li>
+        </ul>
+      </nav>
 
+      
+      <br/>
+    </div>
+  </div>
   <form class="form-horizontal" [formGroup]="form">
     <div class="row" [ngClass]="displayFieldCss('name')">
       <div class="col-md-12">

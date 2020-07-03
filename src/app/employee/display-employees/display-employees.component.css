@@ -1,0 +1,22 @@
+.imageClass{
+  width: 200px;
+  height: 200px;
+}
+.vertical-align{
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 780px) {
+  .imageClass{
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .imageClass{
+    width: 90px;
+    height: 110px;
+  }
+}
