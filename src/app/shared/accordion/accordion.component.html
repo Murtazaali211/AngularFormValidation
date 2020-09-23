@@ -1,0 +1,14 @@
+<div class="panel-primary" [class.panel-success]="hasJustViewed"> <!--panel (click)="handleClick()" -->
+    <!-- <div class="panel-heading pointerCursor"  (click)="isHidden = !isHidden"> collapse or show hide div -->
+      <div class="panel-heading pointerCursor" (click)="isHidden = !isHidden">
+      <h3 class="panel-title ">{{title | uppercase}}</h3>
+    </div>
+    
+      <div class="panel-body" [hidden]="isHidden">
+        <ng-content select=".myPanelHeader"></ng-content>
+    </div>
+    
+      <div class="panel-footer" [hidden]="isHidden">
+          <ng-content select=".myPanelFooter"></ng-content>
+      </div>
+  </div>

@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+button.btn{
+  width: 70px;  
+  margin-left: 3px;
+}
+
+.pointerCursor{
+  cursor: pointer;
+}
 @media screen and (max-width: 780px) {
   .imageClass{
     width: 150px;

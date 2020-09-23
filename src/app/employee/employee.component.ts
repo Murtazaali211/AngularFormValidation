@@ -34,7 +34,7 @@ export class EmployeeComponent implements OnInit {
       this.employees = this._activatedRoute.snapshot.data['employeeList'];
       if (this._activatedRoute.snapshot.queryParamMap.has('searchText')){
         this.searchText = this._activatedRoute.snapshot.queryParamMap.get('searchText');
-      }else {
+      }else { 
         this.filteredEmployees = this.employees;
       }
     }
@@ -53,11 +53,11 @@ export class EmployeeComponent implements OnInit {
      
    //this.filteredEmployees = this.employees;
   // this.employeeToDisplay = this.employees[0];
-  // console.log(this._activatedRoute.snapshot.queryParamMap.has('searchText'));
+  // console.log(this._activatedRoute.snapshot.queryParamMap.has('searchText')); // to work with query parameter map property we use queryparamMap
   // console.log(this._activatedRoute.snapshot.queryParamMap.get('searchText'));
   // console.log(this._activatedRoute.snapshot.queryParamMap.getAll('searchText'));
   // console.log(this._activatedRoute.snapshot.queryParamMap.keys);
-  // console.log(this._activatedRoute.snapshot.paramMap.keys);
+  // console.log(this._activatedRoute.snapshot.paramMap.keys); //for optinal route parameters
    
   }
   // nextEmployee(): void{
@@ -79,12 +79,20 @@ export class EmployeeComponent implements OnInit {
     // newEmployeeArray[0].name = 'Jordan';
     // this.employees = newEmployeeArray; 
   }
-  onMouseMove(){
+//   onMouseMove(){
 
+//   }
+//   onClick(id: number){
+//     this.route.navigate(['/employees', id],{
+//       queryParams: {'searchText': this.searchText, 'testParam': 'testValue'}
+//     });
+//   }
+
+onDeleteNotification(id: number){
+  const i = this.filteredEmployees.findIndex( e => e.id === id);
+  if(i !== -1){
+    this.filteredEmployees.splice(i, 1);
   }
-  onClick(id: number){
-    this.route.navigate(['/employees', id],{
-      queryParams: {'searchText': this.searchText, 'testParam': 'testValue'}
-    });
-  }
+
+}
 }
